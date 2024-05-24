@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  -data = data || {}
+  -let maxRating = 5
+
+  if errors
+    ul
+      for error in errors
+        li= error.msg
+
+  .album.py-5.bg-light
+    .container
+      .row
+        .col      
+          form(action="." method="POST")
+            label(for="name") Song Name: 
+            input(
+              type="text"
+              id="name"
+              name="name"
+              value=data.name || ''
+            )
+            label(for="artist") Artist: 
+            input(
+              type="text"
+              id="artist"
+              name="artist"
+              value=data.artist || '' 
+            )
+
+            each val in [1, 2, 3, 4, 5]
+              .star-rating
+              span #{val}★
+                label(for=`rating-${val}`)
+                input(type="radio" name="rating" value=val)
+                
+
+            input(type="submit" value="Submit")
+
+
+
+
+
+

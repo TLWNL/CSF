@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .album.py-5.bg-light
+        .container
+            .row
+                .col
+                    table.table-striped.table-bordered
+                        thead
+                            tr
+                            th.text-center Song Name
+                            th.text-center Artist
+                            th.text-center Rating
+                            th.text-center ID
+                        tbody
+                            tr
+                                td.text-center= song.name
+                                td.text-center= song.artist
+                                td.text-center= song.rating
+                                td.text-center= song._id
+                .col
+                    a.btn.btn-primary(href='/form') Add New Song

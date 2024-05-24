@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    .album.py-5.bg-light
+        .container
+            .row
+                .col
+                    if songs.length
+                        table.table-striped.table-bordered
+                            thead
+                            tr
+                                th.text-center Song Name
+                                th.text-center Artist
+                                th.text-center Rating
+                                th.text-center ID
+                            tbody
+                            each song in songs
+                                tr
+                                td.text-center= song.name
+                                td.text-center= song.artist
+                                td.text-center= song.rating
+                                td.text-center= song._id
+                                td
+                                    a.btn.btn-primary(href=`/findLyrics/${song._id}`) Find Lyrics
+                    else
+                        p.text-center No Song
+
+                .col
+                    a.btn.btn-primary(href='/form') Add New Song
+
+            .row
+                .col
+                    if lyrics
+                        div(id="findLyricsModal")
+                            div(class="card")
+                            div(class="card-body")
+                                h5.card-title Lyrics
+                                textarea.lyrics(rows="10")(class="form-control", readonly=true)= lyrics
+                                div(class="mt-3")
+                                button.close(type="button") &times;

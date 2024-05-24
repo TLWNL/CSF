@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    title LogRocket Pug Example
+    link(rel='stylesheet' href='https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css')
+    style.
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      footer {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      footer p {
+        margin-bottom: .25rem;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      
+
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href='/') Favorite Song Tracker
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      div.collapse.navbar-collapse(id='navbarNavDropdown')
+        ul.navbar-nav
+          li.nav-item.mr-4
+            a.navbar-link(href='/') See All Favorite Songs     
+          li.nav-item.mr-auto
+            a.navbar-link(href='/form') Add New Song
+
+
+
+    main#main
+      block content
+
+    
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js')
+    script(src='https://getbootstrap.com/docs/4.4/dist/js/bootstrap.bundle.min.js')
